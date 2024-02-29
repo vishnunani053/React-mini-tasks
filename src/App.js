@@ -4,7 +4,9 @@ import React from 'react';
 // import SnakeGame from './snakeGame/SnakeGame.jsx';
 // import Download from './download-interval/Download.jsx';
 // import OTPGenNewWay from './otp-random/OTPGenNewWay.jsx';
-import PromiseComponent from './promise/Promise';
+// import PromiseComponent from './promise/Promise';
+// import ChatGpt from './open-AI/ChatGpt';
+import UseStateHook from './useState/UseStateHook';
 
 const App = () => {
   return (
@@ -14,7 +16,9 @@ const App = () => {
       {/* <Download/> */}
       {/* <OTPGenNewWay/> */}
       {/* <Card/> */}
-      <PromiseComponent/>
+      {/* <PromiseComponent/> */}
+      {/* <ChatGpt/> */}
+      <UseStateHook/>
 
     </div>
   );
