@@ -1,31 +1,27 @@
-
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
 const SetTimeoutCounter = () => {
-    const [visible,setVisible]=useState(true)
-    const [count,setCount]=useState(5)
-    useEffect(()=>{
-     const timer = setTimeout(()=>{
-setVisible(false)
-     },5000)
-     console.log(timer)
-     const counter = setInterval(()=>{
-         setCount(prevCount=>prevCount-1)
-         
-        },1000)
-        console.log(counter)
-    },[])
+  const [visible, setVisible] = useState(true);
+  const [count, setCount] = useState(5);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisible(false);
+    }, 5000);
+    console.log(timer);
+    const counter = setInterval(() => {
+      setCount((prevCount) => prevCount - 1);
+    }, 1000);
+    console.log(counter);
+  }, []);
   return (
     <div>
-        <h4>{visible && `it will disappear in ${count} seconds`}</h4>
-        <h1>{count===0?"hello good morning":""}</h1>
-    
+      <h4>{visible && `it will disappear in ${count} seconds`}</h4>
+      <h1>{count === 0 ? "hello good morning" : ""}</h1>
     </div>
-    
-  )
-}
+  );
+};
 
-export default SetTimeoutCounter
+export default SetTimeoutCounter;
 
 // import React, { useState } from "react";
 

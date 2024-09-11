@@ -40,13 +40,28 @@ const UseStateHook = () => {
   //         salary:""
   //     })
   // }
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData({ ...formData, [name]: value });
+  // };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setSubmittedData([...submittedData, formData]);
+  //   setFormData({
+  //     name: "",
+  //     email: "",
+  //     contact: "",
+  //     salary: "",
+  //   });
+  // };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     setSubmittedData([...submittedData, formData]);
     setFormData({
       name: "",
@@ -55,9 +70,13 @@ const UseStateHook = () => {
       salary: "",
     });
   };
+  const handleDelete = (index) => {
+    const deleteData = submittedData.filter((_, i) => i !== index);
+    setSubmittedData(deleteData);
+  };
 
   return (
-    <div>
+    <div className="px-5 py-5">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -100,22 +119,28 @@ const UseStateHook = () => {
 
       <div>
         <h2>Submitted Data</h2>
-        <table>
+        <table border={2}>
           <thead>
             <tr>
+              <th>S.No</th>
               <th>Name</th>
               <th>Email</th>
               <th>Contact</th>
               <th>Salary</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
             {submittedData.map((data, index) => (
               <tr key={index}>
+                <td>{index + 1}</td>
                 <td>{data.name}</td>
                 <td>{data.email}</td>
                 <td>{data.contact}</td>
                 <td>{data.salary}</td>
+                <td>
+                  <button onClick={() => handleDelete(index)}>Delete</button>
+                </td>
               </tr>
             ))}
           </tbody>
